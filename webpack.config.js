@@ -32,9 +32,6 @@ module.exports = (env, options) => {
 
       new FileManagerPlugin({
         events: {
-          onStart: {
-            delete: ['dist'],
-          },
           onEnd: {
             delete: ['dist/styles.min.js'],
             copy: [{ source: 'dist', destination: 'docs/assets' }],
@@ -74,7 +71,7 @@ module.exports = (env, options) => {
   };
 
   if (options.mode === 'development') {
-    config.devtool = 'inline-source-map';
+    config.devtool = 'source-map';
   }
 
   return config;
