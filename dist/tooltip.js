@@ -11,7 +11,556 @@ var __webpack_exports__ = {};
  * Popper v1.0.4
  * https://sa-si-dev.github.io/popper
  * Licensed under MIT (https://github.com/sa-si-dev/popper/blob/master/LICENSE)
- */!function(){"use strict";function t(t){return function(t){if(Array.isArray(t))return e(t)}(t)||function(t){if("undefined"!=typeof Symbol&&null!=t[Symbol.iterator]||null!=t["@@iterator"])return Array.from(t)}(t)||function(t,o){if(!t)return;if("string"==typeof t)return e(t,o);var i=Object.prototype.toString.call(t).slice(8,-1);"Object"===i&&t.constructor&&(i=t.constructor.name);if("Map"===i||"Set"===i)return Array.from(t);if("Arguments"===i||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(i))return e(t,o)}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function e(t,e){(null==e||e>t.length)&&(e=t.length);for(var o=0,i=new Array(e);o<e;o++)i[o]=t[o];return i}function o(t,e){for(var o=0;o<e.length;o++){var i=e[o];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var i=function(){function e(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e)}var i,r,n;return i=e,n=[{key:"addClass",value:function(o,i){o&&(i=i.split(" "),e.getElements(o).forEach((function(e){var o;(o=e.classList).add.apply(o,t(i))})))}},{key:"removeClass",value:function(o,i){o&&(i=i.split(" "),e.getElements(o).forEach((function(e){var o;(o=e.classList).remove.apply(o,t(i))})))}},{key:"getElements",value:function(t){if(t)return void 0===t.forEach&&(t=[t]),t}},{key:"getMoreVisibleSides",value:function(t){if(!t)return{};var e=t.getBoundingClientRect(),o=window.innerWidth,i=window.innerHeight,r=e.left,n=e.top;return{horizontal:r>o-r-e.width?"left":"right",vertical:n>i-n-e.height?"top":"bottom"}}},{key:"getAbsoluteCoords",value:function(t){if(t){var e=t.getBoundingClientRect(),o=window.pageXOffset,i=window.pageYOffset;return{width:e.width,height:e.height,top:e.top+i,right:e.right+o,bottom:e.bottom+i,left:e.left+o}}}},{key:"getCoords",value:function(t){return t?t.getBoundingClientRect():{}}},{key:"getData",value:function(t,e,o){if(t){var i=t?t.dataset[e]:"";return"number"===o?i=parseFloat(i)||0:"true"===i?i=!0:"false"===i&&(i=!1),i}}},{key:"setData",value:function(t,e,o){t&&(t.dataset[e]=o)}},{key:"setStyle",value:function(t,e,o){t&&(t.style[e]=o)}},{key:"show",value:function(t){var o=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"block";e.setStyle(t,"display",o)}},{key:"hide",value:function(t){e.setStyle(t,"display","none")}},{key:"getHideableParent",value:function(t){for(var e,o=t.parentElement;o;){var i=getComputedStyle(o).overflow;if(-1!==i.indexOf("scroll")||-1!==i.indexOf("auto")){e=o;break}o=o.parentElement}return e}}],(r=null)&&o(i.prototype,r),n&&o(i,n),e}();function r(t,e){for(var o=0;o<e.length;o++){var i=e[o];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}var n=["top","bottom","left","right"].map((function(t){return"position-".concat(t)})),a={top:"rotate(180deg)",left:"rotate(90deg)",right:"rotate(-90deg)"},s=function(){function t(e){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t);try{this.setProps(e),this.init()}catch(t){console.warn("Couldn't initiate popper"),console.error(t)}}var e,o,s;return e=t,(o=[{key:"init",value:function(){var t=this.$popperEle;t&&this.$triggerEle&&(i.setStyle(t,"zIndex",this.zIndex),this.setPosition())}},{key:"setProps",value:function(t){var e=(t=this.setDefaultProps(t)).position?t.position.toLowerCase():"auto";if(this.$popperEle=t.$popperEle,this.$triggerEle=t.$triggerEle,this.$arrowEle=t.$arrowEle,this.margin=parseFloat(t.margin),this.offset=parseFloat(t.offset),this.enterDelay=parseFloat(t.enterDelay),this.exitDelay=parseFloat(t.exitDelay),this.showDuration=parseFloat(t.showDuration),this.hideDuration=parseFloat(t.hideDuration),this.transitionDistance=parseFloat(t.transitionDistance),this.zIndex=parseFloat(t.zIndex),this.afterShowCallback=t.afterShow,this.afterHideCallback=t.afterHide,this.hasArrow=!!this.$arrowEle,-1!==e.indexOf(" ")){var o=e.split(" ");this.position=o[0],this.secondaryPosition=o[1]}else this.position=e}},{key:"setDefaultProps",value:function(t){return Object.assign({position:"auto",margin:8,offset:5,enterDelay:0,exitDelay:0,showDuration:300,hideDuration:200,transitionDistance:10,zIndex:1},t)}},{key:"setPosition",value:function(){i.show(this.$popperEle,"inline-flex");var t,e,o,r=window.innerWidth,s=window.innerHeight,l=i.getAbsoluteCoords(this.$popperEle),p=i.getAbsoluteCoords(this.$triggerEle),f=l.width,u=l.height,h=l.top,c=l.right,d=l.bottom,y=l.left,g=p.width,m=p.height,v=p.top,w=p.right,E=p.bottom,b=p.left,D=v-h,$=b-y,k=$,x=D,S=this.position,C=this.secondaryPosition,T=g/2-f/2,P=m/2-u/2,A=this.margin,O=this.transitionDistance,F=window.scrollY-h,I=s+F,j=window.scrollX-y,H=r+j,z=this.offset;z&&(F+=z,I-=z,j+=z,H-=z),"auto"===S&&(S=i.getMoreVisibleSides(this.$triggerEle).vertical);var L={top:{top:x-u-A,left:k+T},bottom:{top:x+m+A,left:k+T},right:{top:x+P,left:k+g+A},left:{top:x+P,left:k-f-A}},B=L[S];if(x=B.top,k=B.left,C&&("top"===C?x=D:"bottom"===C?x=D+m-u:"left"===C?k=$:"right"===C&&(k=$+g-f)),k<j?"left"===S?o="right":k=j+y>w?w-y:j:k+f>H&&("right"===S?o="left":k=H+y<b?b-c:H-f),x<F?"top"===S?o="bottom":x=F+h>E?E-h:F:x+u>I&&("bottom"===S?o="top":x=I+h<v?v-d:I-u),o){var M=L[o];"top"===(S=o)||"bottom"===S?x=M.top:"left"!==S&&"right"!==S||(k=M.left)}"top"===S?(t=x+O,e=k):"right"===S?(t=x,e=k-O):"left"===S?(t=x,e=k+O):(t=x-O,e=k);var R="translate3d(".concat(e,"px, ").concat(t,"px, 0)");if(i.setStyle(this.$popperEle,"transform",R),i.setData(this.$popperEle,"fromLeft",e),i.setData(this.$popperEle,"fromTop",t),i.setData(this.$popperEle,"top",x),i.setData(this.$popperEle,"left",k),i.removeClass(this.$popperEle,n.join(" ")),i.addClass(this.$popperEle,"position-".concat(S)),this.hasArrow){var W=0,V=0,X=k+y,Y=x+h,U=this.$arrowEle.offsetWidth/2,q=a[S]||"";"top"===S||"bottom"===S?(W=g/2+b-X)<U?W=U:W>f-U&&(W=f-U):"left"!==S&&"right"!==S||((V=m/2+v-Y)<U?V=U:V>u-U&&(V=u-U)),i.setStyle(this.$arrowEle,"transform","translate3d(".concat(W,"px, ").concat(V,"px, 0) ").concat(q))}i.hide(this.$popperEle)}},{key:"resetPosition",value:function(){i.setStyle(this.$popperEle,"transform","none"),this.setPosition()}},{key:"show",value:function(){var t=this,e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},o=e.resetPosition,r=e.data;clearTimeout(this.exitDelayTimeout),clearTimeout(this.hideDurationTimeout),o&&this.resetPosition(),this.enterDelayTimeout=setTimeout((function(){var e=i.getData(t.$popperEle,"left"),o=i.getData(t.$popperEle,"top"),n="translate3d(".concat(e,"px, ").concat(o,"px, 0)"),a=t.showDuration;i.show(t.$popperEle,"inline-flex"),i.getCoords(t.$popperEle),i.setStyle(t.$popperEle,"transitionDuration",a+"ms"),i.setStyle(t.$popperEle,"transform",n),i.setStyle(t.$popperEle,"opacity",1),t.showDurationTimeout=setTimeout((function(){"function"==typeof t.afterShowCallback&&t.afterShowCallback(r)}),a)}),this.enterDelay)}},{key:"hide",value:function(){var t=this,e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},o=e.data;clearTimeout(this.enterDelayTimeout),clearTimeout(this.showDurationTimeout),this.exitDelayTimeout=setTimeout((function(){if(t.$popperEle){var e=i.getData(t.$popperEle,"fromLeft"),r=i.getData(t.$popperEle,"fromTop"),n="translate3d(".concat(e,"px, ").concat(r,"px, 0)"),a=t.hideDuration;i.setStyle(t.$popperEle,"transitionDuration",a+"ms"),i.setStyle(t.$popperEle,"transform",n),i.setStyle(t.$popperEle,"opacity",0),t.hideDurationTimeout=setTimeout((function(){i.hide(t.$popperEle),"function"==typeof t.afterHideCallback&&t.afterHideCallback(o)}),a)}}),this.exitDelay)}},{key:"updatePosition",value:function(){i.setStyle(this.$popperEle,"transitionDuration","0ms"),this.resetPosition();var t=i.getData(this.$popperEle,"left"),e=i.getData(this.$popperEle,"top");i.show(this.$popperEle,"inline-flex"),i.setStyle(this.$popperEle,"transform","translate3d(".concat(t,"px, ").concat(e,"px, 0)"))}}])&&r(e.prototype,o),s&&r(e,s),t}();window.PopperComponent=s}();
+ */
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+// UNUSED EXPORTS: Popper
+
+;// CONCATENATED MODULE: ./src/utils/dom-utils.js
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var DomUtils = /*#__PURE__*/function () {
+  function DomUtils() {
+    _classCallCheck(this, DomUtils);
+  }
+  _createClass(DomUtils, null, [{
+    key: "addClass",
+    value: function addClass($ele, className) {
+      if (!$ele) {
+        return;
+      }
+      className = className.split(' ');
+      DomUtils.getElements($ele).forEach(function ($this) {
+        var _$this$classList;
+        (_$this$classList = $this.classList).add.apply(_$this$classList, _toConsumableArray(className));
+      });
+    }
+  }, {
+    key: "removeClass",
+    value: function removeClass($ele, className) {
+      if (!$ele) {
+        return;
+      }
+      className = className.split(' ');
+      DomUtils.getElements($ele).forEach(function ($this) {
+        var _$this$classList2;
+        (_$this$classList2 = $this.classList).remove.apply(_$this$classList2, _toConsumableArray(className));
+      });
+    }
+  }, {
+    key: "getElements",
+    value: function getElements($ele) {
+      if (!$ele) {
+        return;
+      }
+      if ($ele.forEach === undefined) {
+        $ele = [$ele];
+      }
+      return $ele;
+    }
+  }, {
+    key: "getMoreVisibleSides",
+    value: function getMoreVisibleSides($ele) {
+      if (!$ele) {
+        return {};
+      }
+      var box = $ele.getBoundingClientRect();
+      var availableWidth = window.innerWidth;
+      var availableHeight = window.innerHeight;
+      var leftArea = box.left;
+      var topArea = box.top;
+      var rightArea = availableWidth - leftArea - box.width;
+      var bottomArea = availableHeight - topArea - box.height;
+      var horizontal = leftArea > rightArea ? 'left' : 'right';
+      var vertical = topArea > bottomArea ? 'top' : 'bottom';
+      return {
+        horizontal: horizontal,
+        vertical: vertical
+      };
+    }
+  }, {
+    key: "getAbsoluteCoords",
+    value: function getAbsoluteCoords($ele) {
+      if (!$ele) {
+        return;
+      }
+      var box = $ele.getBoundingClientRect();
+      var pageX = window.pageXOffset;
+      var pageY = window.pageYOffset;
+      return {
+        width: box.width,
+        height: box.height,
+        top: box.top + pageY,
+        right: box.right + pageX,
+        bottom: box.bottom + pageY,
+        left: box.left + pageX
+      };
+    }
+  }, {
+    key: "getCoords",
+    value: function getCoords($ele) {
+      return $ele ? $ele.getBoundingClientRect() : {};
+    }
+  }, {
+    key: "getData",
+    value: function getData($ele, name, type) {
+      if (!$ele) {
+        return;
+      }
+      var value = $ele ? $ele.dataset[name] : '';
+      if (type === 'number') {
+        value = parseFloat(value) || 0;
+      } else {
+        if (value === 'true') {
+          value = true;
+        } else if (value === 'false') {
+          value = false;
+        }
+      }
+      return value;
+    }
+  }, {
+    key: "setData",
+    value: function setData($ele, name, value) {
+      if (!$ele) {
+        return;
+      }
+      $ele.dataset[name] = value;
+    }
+  }, {
+    key: "setStyle",
+    value: function setStyle($ele, name, value) {
+      if (!$ele) {
+        return;
+      }
+      $ele.style[name] = value;
+    }
+  }, {
+    key: "show",
+    value: function show($ele) {
+      var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'block';
+      DomUtils.setStyle($ele, 'display', value);
+    }
+  }, {
+    key: "hide",
+    value: function hide($ele) {
+      DomUtils.setStyle($ele, 'display', 'none');
+    }
+
+    /** getting parent element which could hide absolute positioned child */
+  }, {
+    key: "getHideableParent",
+    value: function getHideableParent($ele) {
+      var $hideableParent;
+      var $parent = $ele.parentElement;
+      while ($parent) {
+        var overflowValue = getComputedStyle($parent).overflow;
+        if (overflowValue.indexOf('scroll') !== -1 || overflowValue.indexOf('auto') !== -1) {
+          $hideableParent = $parent;
+          break;
+        }
+        $parent = $parent.parentElement;
+      }
+      return $hideableParent;
+    }
+  }]);
+  return DomUtils;
+}();
+;// CONCATENATED MODULE: ./src/popper.js
+function popper_typeof(o) { "@babel/helpers - typeof"; return popper_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, popper_typeof(o); }
+function popper_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function popper_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, popper_toPropertyKey(descriptor.key), descriptor); } }
+function popper_createClass(Constructor, protoProps, staticProps) { if (protoProps) popper_defineProperties(Constructor.prototype, protoProps); if (staticProps) popper_defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function popper_toPropertyKey(arg) { var key = popper_toPrimitive(arg, "string"); return popper_typeof(key) === "symbol" ? key : String(key); }
+function popper_toPrimitive(input, hint) { if (popper_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (popper_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+var allPositions = ['top', 'bottom', 'left', 'right'];
+var allPositionsClass = allPositions.map(function (d) {
+  return "position-".concat(d);
+});
+var arrowRotateMapping = {
+  top: 'rotate(180deg)',
+  left: 'rotate(90deg)',
+  right: 'rotate(-90deg)'
+};
+var Popper = /*#__PURE__*/function () {
+  /**
+   * Create a Popper
+   * @property {element} $popperEle - Popper element
+   * @property {element} $triggerEle - Trigger element
+   * @property {element} $arrowEle - Arrow icon in the popper
+   * @property {string} [position=auto] - Position of popper (top, bottom, left, right, auto)
+   * @property {number} [margin=8] - Space between popper and its activator (in pixel)
+   * @property {number} [offset=5] - Space between popper and window edge (in pixel)
+   * @property {number} [enterDelay=0] - Delay time before showing popper (in milliseconds)
+   * @property {number} [exitDelay=0] - Delay time before hiding popper (in milliseconds)
+   * @property {number} [showDuration=300] - Transition duration for show animation (in milliseconds)
+   * @property {number} [hideDuration=200] - Transition duration for hide animation (in milliseconds)
+   * @property {number} [transitionDistance=10] - Distance to translate on show/hide animation (in pixel)
+   * @property {number} [zIndex=1] - CSS z-index value for popper
+   * @property {function} [afterShow] - Callback function to trigger after show
+   * @property {function} [afterHide] - Callback function to trigger after hide
+   */
+  function Popper(options) {
+    popper_classCallCheck(this, Popper);
+    try {
+      this.setProps(options);
+      this.init();
+    } catch (e) {
+      console.warn("Couldn't initiate popper");
+      console.error(e);
+    }
+  }
+  popper_createClass(Popper, [{
+    key: "init",
+    value: function init() {
+      var $popperEle = this.$popperEle;
+      if (!$popperEle || !this.$triggerEle) {
+        return;
+      }
+      DomUtils.setStyle($popperEle, 'zIndex', this.zIndex);
+      this.setPosition();
+    }
+
+    /** set methods - start */
+  }, {
+    key: "setProps",
+    value: function setProps(options) {
+      options = this.setDefaultProps(options);
+      var position = options.position ? options.position.toLowerCase() : 'auto';
+      this.$popperEle = options.$popperEle;
+      this.$triggerEle = options.$triggerEle;
+      this.$arrowEle = options.$arrowEle;
+      this.margin = parseFloat(options.margin);
+      this.offset = parseFloat(options.offset);
+      this.enterDelay = parseFloat(options.enterDelay);
+      this.exitDelay = parseFloat(options.exitDelay);
+      this.showDuration = parseFloat(options.showDuration);
+      this.hideDuration = parseFloat(options.hideDuration);
+      this.transitionDistance = parseFloat(options.transitionDistance);
+      this.zIndex = parseFloat(options.zIndex);
+      this.afterShowCallback = options.afterShow;
+      this.afterHideCallback = options.afterHide;
+      this.hasArrow = this.$arrowEle ? true : false;
+      if (position.indexOf(' ') !== -1) {
+        var positionArray = position.split(' ');
+        this.position = positionArray[0];
+        this.secondaryPosition = positionArray[1];
+      } else {
+        this.position = position;
+      }
+    }
+  }, {
+    key: "setDefaultProps",
+    value: function setDefaultProps(options) {
+      var defaultOptions = {
+        position: 'auto',
+        margin: 8,
+        offset: 5,
+        enterDelay: 0,
+        exitDelay: 0,
+        showDuration: 300,
+        hideDuration: 200,
+        transitionDistance: 10,
+        zIndex: 1
+      };
+      return Object.assign(defaultOptions, options);
+    }
+  }, {
+    key: "setPosition",
+    value: function setPosition() {
+      DomUtils.show(this.$popperEle, 'inline-flex');
+      var viewportWidth = window.innerWidth;
+      var viewportHeight = window.innerHeight;
+      var popperEleCoords = DomUtils.getAbsoluteCoords(this.$popperEle);
+      var triggerEleCoords = DomUtils.getAbsoluteCoords(this.$triggerEle);
+      var popperEleWidth = popperEleCoords.width;
+      var popperEleHeight = popperEleCoords.height;
+      var popperEleTop = popperEleCoords.top;
+      var popperEleRight = popperEleCoords.right;
+      var popperEleBotttom = popperEleCoords.bottom;
+      var popperEleLeft = popperEleCoords.left;
+      var triggerEleWidth = triggerEleCoords.width;
+      var triggerEleHeight = triggerEleCoords.height;
+      var triggerEleTop = triggerEleCoords.top;
+      var triggerEleRight = triggerEleCoords.right;
+      var triggerEleBottom = triggerEleCoords.bottom;
+      var triggerEleLeft = triggerEleCoords.left;
+      var topDiff = triggerEleTop - popperEleTop;
+      var leftDiff = triggerEleLeft - popperEleLeft;
+      var left = leftDiff;
+      var top = topDiff;
+      var position = this.position;
+      var secondaryPosition = this.secondaryPosition;
+      var widthCenter = triggerEleWidth / 2 - popperEleWidth / 2;
+      var heightCenter = triggerEleHeight / 2 - popperEleHeight / 2;
+      var margin = this.margin;
+      var transitionDistance = this.transitionDistance;
+      var fromTop;
+      var fromLeft;
+      var topEdge = window.scrollY - popperEleTop;
+      var bottomEdge = viewportHeight + topEdge;
+      var leftEdge = window.scrollX - popperEleLeft;
+      var rightEdge = viewportWidth + leftEdge;
+      var inversePosition;
+      var viewportOffset = this.offset;
+      if (viewportOffset) {
+        topEdge += viewportOffset;
+        bottomEdge -= viewportOffset;
+        leftEdge += viewportOffset;
+        rightEdge -= viewportOffset;
+      }
+
+      /** find the position which has more space */
+      if (position === 'auto') {
+        var moreVisibleSides = DomUtils.getMoreVisibleSides(this.$triggerEle);
+        position = moreVisibleSides.vertical;
+      }
+      var positionsValue = {
+        top: {
+          top: top - popperEleHeight - margin,
+          left: left + widthCenter
+        },
+        bottom: {
+          top: top + triggerEleHeight + margin,
+          left: left + widthCenter
+        },
+        right: {
+          top: top + heightCenter,
+          left: left + triggerEleWidth + margin
+        },
+        left: {
+          top: top + heightCenter,
+          left: left - popperEleWidth - margin
+        }
+      };
+      var positionValue = positionsValue[position];
+      top = positionValue.top;
+      left = positionValue.left;
+
+      /** setting secondary position value */
+      if (secondaryPosition) {
+        if (secondaryPosition === 'top') {
+          top = topDiff;
+        } else if (secondaryPosition === 'bottom') {
+          top = topDiff + triggerEleHeight - popperEleHeight;
+        } else if (secondaryPosition === 'left') {
+          left = leftDiff;
+        } else if (secondaryPosition === 'right') {
+          left = leftDiff + triggerEleWidth - popperEleWidth;
+        }
+      }
+
+      /* if popperEle is hiding on left edge */
+      if (left < leftEdge) {
+        if (position === 'left') {
+          inversePosition = 'right';
+        } else if (leftEdge + popperEleLeft > triggerEleRight) {
+          /** if triggerEle is hiding on left edge */
+          left = triggerEleRight - popperEleLeft;
+        } else {
+          left = leftEdge;
+        }
+      } else if (left + popperEleWidth > rightEdge) {
+        /* if popperEle is hiding on right edge */
+        if (position === 'right') {
+          inversePosition = 'left';
+        } else if (rightEdge + popperEleLeft < triggerEleLeft) {
+          /** if triggerEle is hiding on right edge */
+          left = triggerEleLeft - popperEleRight;
+        } else {
+          left = rightEdge - popperEleWidth;
+        }
+      }
+
+      /* if popperEle is hiding on top edge */
+      if (top < topEdge) {
+        if (position === 'top') {
+          inversePosition = 'bottom';
+        } else if (topEdge + popperEleTop > triggerEleBottom) {
+          /** if triggerEle is hiding on top edge */
+          top = triggerEleBottom - popperEleTop;
+        } else {
+          top = topEdge;
+        }
+      } else if (top + popperEleHeight > bottomEdge) {
+        /* if popperEle is hiding on bottom edge */
+        if (position === 'bottom') {
+          inversePosition = 'top';
+        } else if (bottomEdge + popperEleTop < triggerEleTop) {
+          /** if triggerEle is hiding on bottom edge */
+          top = triggerEleTop - popperEleBotttom;
+        } else {
+          top = bottomEdge - popperEleHeight;
+        }
+      }
+
+      /** if popper element is hidden in the given position, show it on opposite position */
+      if (inversePosition) {
+        var inversePositionValue = positionsValue[inversePosition];
+        position = inversePosition;
+        if (position === 'top' || position === 'bottom') {
+          top = inversePositionValue.top;
+        } else if (position === 'left' || position === 'right') {
+          left = inversePositionValue.left;
+        }
+      }
+      if (position === 'top') {
+        fromTop = top + transitionDistance;
+        fromLeft = left;
+      } else if (position === 'right') {
+        fromTop = top;
+        fromLeft = left - transitionDistance;
+      } else if (position === 'left') {
+        fromTop = top;
+        fromLeft = left + transitionDistance;
+      } else {
+        fromTop = top - transitionDistance;
+        fromLeft = left;
+      }
+      var transformText = "translate3d(".concat(fromLeft, "px, ").concat(fromTop, "px, 0)");
+      DomUtils.setStyle(this.$popperEle, 'transform', transformText);
+      DomUtils.setData(this.$popperEle, 'fromLeft', fromLeft);
+      DomUtils.setData(this.$popperEle, 'fromTop', fromTop);
+      DomUtils.setData(this.$popperEle, 'top', top);
+      DomUtils.setData(this.$popperEle, 'left', left);
+      DomUtils.removeClass(this.$popperEle, allPositionsClass.join(' '));
+      DomUtils.addClass(this.$popperEle, "position-".concat(position));
+      if (this.hasArrow) {
+        var arrowLeft = 0;
+        var arrowTop = 0;
+        var fullLeft = left + popperEleLeft;
+        var fullTop = top + popperEleTop;
+        var arrowWidthHalf = this.$arrowEle.offsetWidth / 2;
+        var rotateText = arrowRotateMapping[position] || '';
+        if (position === 'top' || position === 'bottom') {
+          var triggerEleWidthCenter = triggerEleWidth / 2 + triggerEleLeft;
+          arrowLeft = triggerEleWidthCenter - fullLeft;
+
+          /** if arrow crossed left edge of popper element */
+          if (arrowLeft < arrowWidthHalf) {
+            arrowLeft = arrowWidthHalf;
+          } else if (arrowLeft > popperEleWidth - arrowWidthHalf) {
+            /** if arrow crossed right edge of popper element */
+            arrowLeft = popperEleWidth - arrowWidthHalf;
+          }
+        } else if (position === 'left' || position === 'right') {
+          var triggerEleHeightCenter = triggerEleHeight / 2 + triggerEleTop;
+          arrowTop = triggerEleHeightCenter - fullTop;
+
+          /** if arrow crossed top edge of popper element */
+          if (arrowTop < arrowWidthHalf) {
+            arrowTop = arrowWidthHalf;
+          } else if (arrowTop > popperEleHeight - arrowWidthHalf) {
+            /** if arrow crossed bottom edge of popper element */
+            arrowTop = popperEleHeight - arrowWidthHalf;
+          }
+        }
+        DomUtils.setStyle(this.$arrowEle, 'transform', "translate3d(".concat(arrowLeft, "px, ").concat(arrowTop, "px, 0) ").concat(rotateText));
+      }
+      DomUtils.hide(this.$popperEle);
+    }
+  }, {
+    key: "resetPosition",
+    value: function resetPosition() {
+      DomUtils.setStyle(this.$popperEle, 'transform', 'none');
+      this.setPosition();
+    }
+    /** set methods - end */
+
+    /**
+     * @prop {boolean} [resetPosition] - Recalculate position before show
+     * @prop {object} [data] - Any custom data which would be passed to afterShow callback function call
+     */
+  }, {
+    key: "show",
+    value: function show() {
+      var _this = this;
+      var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        resetPosition = _ref.resetPosition,
+        data = _ref.data;
+      clearTimeout(this.exitDelayTimeout);
+      clearTimeout(this.hideDurationTimeout);
+      if (resetPosition) {
+        this.resetPosition();
+      }
+      this.enterDelayTimeout = setTimeout(function () {
+        var left = DomUtils.getData(_this.$popperEle, 'left');
+        var top = DomUtils.getData(_this.$popperEle, 'top');
+        var transformText = "translate3d(".concat(left, "px, ").concat(top, "px, 0)");
+        var showDuration = _this.showDuration;
+        DomUtils.show(_this.$popperEle, 'inline-flex');
+
+        /** calling below method to force redraw - it would move the popper element to its fromLeft and fromTop position */
+        DomUtils.getCoords(_this.$popperEle);
+        DomUtils.setStyle(_this.$popperEle, 'transitionDuration', showDuration + 'ms');
+        DomUtils.setStyle(_this.$popperEle, 'transform', transformText);
+        DomUtils.setStyle(_this.$popperEle, 'opacity', 1);
+        _this.showDurationTimeout = setTimeout(function () {
+          if (typeof _this.afterShowCallback === 'function') {
+            _this.afterShowCallback(data);
+          }
+        }, showDuration);
+      }, this.enterDelay);
+    }
+
+    /**
+     * @prop {object} [data] - Any custom data which would be passed to afterHide callback function call
+     */
+  }, {
+    key: "hide",
+    value: function hide() {
+      var _this2 = this;
+      var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        data = _ref2.data;
+      clearTimeout(this.enterDelayTimeout);
+      clearTimeout(this.showDurationTimeout);
+      this.exitDelayTimeout = setTimeout(function () {
+        if (_this2.$popperEle) {
+          var left = DomUtils.getData(_this2.$popperEle, 'fromLeft');
+          var top = DomUtils.getData(_this2.$popperEle, 'fromTop');
+          var transformText = "translate3d(".concat(left, "px, ").concat(top, "px, 0)");
+          var hideDuration = _this2.hideDuration;
+          DomUtils.setStyle(_this2.$popperEle, 'transitionDuration', hideDuration + 'ms');
+          DomUtils.setStyle(_this2.$popperEle, 'transform', transformText);
+          DomUtils.setStyle(_this2.$popperEle, 'opacity', 0);
+          _this2.hideDurationTimeout = setTimeout(function () {
+            DomUtils.hide(_this2.$popperEle);
+            if (typeof _this2.afterHideCallback === 'function') {
+              _this2.afterHideCallback(data);
+            }
+          }, hideDuration);
+        }
+      }, this.exitDelay);
+    }
+  }, {
+    key: "updatePosition",
+    value: function updatePosition() {
+      DomUtils.setStyle(this.$popperEle, 'transitionDuration', '0ms');
+      this.resetPosition();
+      var left = DomUtils.getData(this.$popperEle, 'left');
+      var top = DomUtils.getData(this.$popperEle, 'top');
+      DomUtils.show(this.$popperEle, 'inline-flex');
+      DomUtils.setStyle(this.$popperEle, 'transform', "translate3d(".concat(left, "px, ").concat(top, "px, 0)"));
+    }
+  }]);
+  return Popper;
+}();
+window.PopperComponent = Popper;
+/******/ })()
+;
 }();
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {

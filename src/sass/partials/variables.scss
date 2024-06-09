@@ -1,4 +1,4 @@
 $primaryBg: #212121;
 $fontColor: #fff;
 $arrowSize: 16px;
-$arrowHalfSize: $arrowSize / 2;
+$arrowHalfSize: math.div($arrowSize, 2);
